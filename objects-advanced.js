@@ -30,7 +30,7 @@ function calculateSalesTax(saleData, taxRates) {
       finalSalesData[i.name].totalSales += currentSales;
       finalSalesData[i.name].totalTaxes += getTaxes(taxRates[i.province], currentSales);
     } else {
-      currentSales = getTotalSales(i.sales, 0);
+      var currentSales = getTotalSales(i.sales);
       finalSalesData[i.name] = {
         totalSales: currentSales,
         totalTaxes: getTaxes(taxRates[i.province], currentSales)
@@ -54,17 +54,6 @@ function getTotalSales(salesAmount) {
 }
 
 
-
-
-
-
-
-
-
 var results = calculateSalesTax(companySalesData, salesTaxRates);
 console.log(results);
-
-
-
-
 
